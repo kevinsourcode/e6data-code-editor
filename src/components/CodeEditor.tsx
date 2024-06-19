@@ -31,6 +31,7 @@ const CodeEditor = () => {
         color="#000"
         borderTopRadius={5}
         p={1}
+        mb={1}
         display="flex"
         alignItems="center"
       >
@@ -38,7 +39,7 @@ const CodeEditor = () => {
         {/* <LanguageSelector language={language} onSelect={onSelect} /> */}
       </Box>
       <Editor
-        height="80vh"
+        height="60vh"
         theme="vs-dark" //can add button for dark mode.
         language={language}
         defaultValue={CODE_SNIPPETS[language]}
@@ -51,7 +52,6 @@ const CodeEditor = () => {
           fontSize: 16,
         }}
       />
-      <TestCase />
     </Box>
   );
 };

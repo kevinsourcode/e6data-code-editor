@@ -31,32 +31,21 @@ export default function Home() {
       <Toaster position="top-right" richColors />
       <Box
         minH="100vh"
-        bg="#333333"
+        bg="#000"
         color="gray.500"
-        px={6}
-        py={8}
         display="flex"
         gap={2}
+        p={3}
+        pr={2}
       >
         <ProblemStatement />
         <Box minW="50%">
           <CodeEditor />
-          <Box display="flex" justifyContent="end">
-            <Button
-              mt={4}
-              mr={2}
-              _hover={{ bg: '#1e1e1e', color: '#fff' }}
-              onClick={runCode}
-            >
-              Run
-            </Button>
-            <Button mt={4} bg="orange.400" onClick={submitCode}>
-              {isLoading ? 'Submitting..' : 'Submit'}
-            </Button>
-          </Box>
+          <TestCase />
+          <Buttons />
         </Box>
       </Box>
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }

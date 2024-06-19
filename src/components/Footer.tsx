@@ -10,16 +10,16 @@ const Footer = () => {
         </Text>
       </Box>
       <Box display="flex" gap={15} cursor="pointer">
-        <Text color="#fff" fontSize={14}>
+        <Text color="#fff" fontSize={14} _hover={{ color: 'orange.500' }}>
           About
         </Text>
-        <Text color="#fff" fontSize={14}>
+        <Text color="#fff" fontSize={14} _hover={{ color: 'orange.500' }}>
           Contact
         </Text>
-        <Text color="#fff" fontSize={14}>
+        <Text color="#fff" fontSize={14} _hover={{ color: 'orange.500' }}>
           Privacy Policy
         </Text>
-        <Text color="#fff" fontSize={14}>
+        <Text color="#fff" fontSize={14} _hover={{ color: 'orange.500' }}>
           Terms of Service
         </Text>
       </Box>
