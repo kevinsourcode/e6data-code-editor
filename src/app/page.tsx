@@ -12,10 +12,11 @@ import TestCase from '@/components/TestCase';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
+  const [isRunning, setIsRunning] = useState(false);
+
+  const [program, setProgram] = useState(false);
 
   const submitCode = () => {
-    console.log('hello');
-    // toast('Program submitted succesfully!');
     setIsLoading(true);
     setTimeout(() => {
       toast.success('Program submitted succesfully!');
@@ -23,12 +24,19 @@ export default function Home() {
     }, 2000);
   };
 
-  const runCode = () => {};
+  const runCode = () => {
+    setIsRunning(true);
+    setTimeout(() => {
+      toast.success('All test cases passed successfully!');
+      setIsRunning(false);
+      setProgram(true);
+    }, 2000);
+  };
 
   return (
     <main>
       <Header />
-      <Toaster position="top-right" richColors />
+      <Toaster position="top-right" richColors closeButton />
       <Box
         minH="100vh"
         bg="#000"
@@ -41,8 +49,13 @@ export default function Home() {
         <ProblemStatement />
         <Box minW="50%">
           <CodeEditor />
-          <TestCase />
-          <Buttons />
+          <TestCase runCode={runCode} program={program} />
+          <Buttons
+            submitCode={submitCode}
+            runCode={runCode}
+            isLoading={isLoading}
+            isRunning={isRunning}
+          />
         </Box>
       </Box>
       {/* <Footer /> */}
