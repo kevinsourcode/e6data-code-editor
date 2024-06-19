@@ -1,49 +1,85 @@
 import React from 'react';
-import { Box, Text, Code, ListItem, UnorderedList } from '@chakra-ui/react';
+import {
+  Box,
+  Text,
+  Code,
+  ListItem,
+  UnorderedList,
+  useColorMode,
+  useColorModeValue,
+} from '@chakra-ui/react';
+import { MdOutlineDescription } from 'react-icons/md';
 
 const ProblemStatement = () => {
+  const { colorMode } = useColorMode();
+  const bg = useColorModeValue('#Fffffe', '#1e1e1e');
+  const color = useColorModeValue('#000', 'orange.500');
+
   return (
     <Box
       minW="50%"
       display="flex"
       flexDirection="column"
       gap={8}
-      bg="#1e1e1e"
+      bg={bg}
       borderRadius={5}
+      h="80vh"
     >
-      <Box w="100%" bg="#fff" color="#000" borderTopRadius={5} p={1}>
-        <Text>Code</Text>
+      <Box
+        w="100%"
+        bg={'#fff'}
+        color="#000"
+        borderTopRadius={5}
+        p={2}
+        display="flex"
+        alignItems="center"
+        gap={2}
+      >
+        <MdOutlineDescription />
+        <Text>Problem Description</Text>
       </Box>
-      <Box display="flex" flexDirection="column" gap={8} borderRadius={5} p={5}>
-        <Text fontSize={32} fontWeight="bold" color="orange.400">
+      <Box
+        display="flex"
+        flexDirection="column"
+        gap={8}
+        borderRadius={5}
+        p={5}
+        overflow="scroll"
+      >
+        <Text fontSize={32} fontWeight="bold" color={color}>
           Two Sum
         </Text>
-        <Text w="70%">
+        <Text w="80%">
           Given an array of integers nums and an integer target, return indices
-          of the two numbers such that they add up to target. You may assume
-          that each input would have exactly one solution, and you may not use
-          the same element twice. You can return the answer in any order.
+          of the two numbers such that they add up to target.
         </Text>
-        <Text color="orange.400" fontWeight="bold">
-          Example 1:{' '}
+        <Text w="80%">
+          You may assume that each input would have exactly one solution, and
+          you may not use the same element twice. You can return the answer in
+          any order.
+        </Text>
+        <Text color={color} fontWeight="bold">
+          Example 1:
         </Text>
         <Code w="60%" rounded={'true'}>
           Input: nums = [2,7,11,15], target = 9 Output: [0,1]
         </Code>
-        <Text color="orange.400" fontWeight="bold">
+        <Text color={color} fontWeight="bold">
           Example 2:{' '}
         </Text>
         <Code w="60%" rounded={'true'}>
           Input: nums = [3,2,4], target = 6 Output: [1,2]
         </Code>
-        <Text color="orange.400" fontWeight="bold">
+        <Text color={color} fontWeight="bold">
           Example 3:{' '}
         </Text>
         <Code w="60%" rounded={'true'}>
           Input: nums = [3,3], target = 6 Output: [0,1]
         </Code>
 
-        <Text mt={5}>Constraints:</Text>
+        <Text color={color} fontWeight="bold" mt={5}>
+          Constraints:
+        </Text>
         <UnorderedList spacing={3}>
           <ListItem>
             2 &gt;= nums.length &lt;= 104 -109 &gt;= target &lt;= 109 Only one

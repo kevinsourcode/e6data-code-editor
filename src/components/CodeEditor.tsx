@@ -6,9 +6,13 @@ import { Editor } from '@monaco-editor/react';
 import * as monaco from 'monaco-editor';
 import LanguageSelector from './LanguageSelector';
 import { CODE_SNIPPETS } from '@/app/constants';
-import TestCase from './TestCase';
+import { FaCode } from 'react-icons/fa';
 
-const CodeEditor = () => {
+interface EditorProps {
+  theme: string;
+}
+
+const CodeEditor: React.FC<EditorProps> = ({ theme }) => {
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
   const [language, setLanguage] = useState('javascript');
   const [value, setValue] = useState('');
@@ -30,17 +34,19 @@ const CodeEditor = () => {
         bg="#fff"
         color="#000"
         borderTopRadius={5}
-        p={1}
+        p={2}
         mb={1}
         display="flex"
         alignItems="center"
+        gap={2}
       >
+        <FaCode />
         <Text>Code</Text>
         {/* <LanguageSelector language={language} onSelect={onSelect} /> */}
       </Box>
       <Editor
-        height="60vh"
-        theme="vs-dark" //can add button for dark mode.
+        height="45vh"
+        theme="vs-dark"
         language={language}
         defaultValue={CODE_SNIPPETS[language]}
         value={value}
@@ -49,7 +55,7 @@ const CodeEditor = () => {
           setValue(value ?? '');
         }}
         options={{
-          fontSize: 16,
+          fontSize: 15,
         }}
       />
     </Box>
