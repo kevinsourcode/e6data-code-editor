@@ -1,11 +1,12 @@
 'use client';
 
-import { Box } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
 import { Editor } from '@monaco-editor/react';
 import * as monaco from 'monaco-editor';
 import LanguageSelector from './LanguageSelector';
 import { CODE_SNIPPETS } from '@/app/constants';
+import TestCase from './TestCase';
 
 const CodeEditor = () => {
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
@@ -24,9 +25,20 @@ const CodeEditor = () => {
 
   return (
     <Box>
-      <LanguageSelector language={language} onSelect={onSelect} />
+      <Box
+        w="100%"
+        bg="#fff"
+        color="#000"
+        borderTopRadius={5}
+        p={1}
+        display="flex"
+        alignItems="center"
+      >
+        <Text>Code</Text>
+        {/* <LanguageSelector language={language} onSelect={onSelect} /> */}
+      </Box>
       <Editor
-        height="70vh"
+        height="80vh"
         theme="vs-dark" //can add button for dark mode.
         language={language}
         defaultValue={CODE_SNIPPETS[language]}
@@ -36,9 +48,10 @@ const CodeEditor = () => {
           setValue(value ?? '');
         }}
         options={{
-          fontSize: 18,
+          fontSize: 16,
         }}
       />
+      <TestCase />
     </Box>
   );
 };
