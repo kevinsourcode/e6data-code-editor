@@ -25,7 +25,7 @@ const TestCase: React.FC<TestCaseProps> = ({ runCode, program }) => {
         <FaCheckSquare />
         <Text>Test Cases</Text>
       </Box>
-      <Box bg={bg} p={4} h="105%" borderRadius={5}>
+      <Box bg={bg} p={4} h="105%" borderBottomRadius={5}>
         {program ? (
           <Box>
             <Text>Output: </Text>

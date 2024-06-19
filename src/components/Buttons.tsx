@@ -40,7 +40,8 @@ const Buttons: React.FC<ButtonsProps> = ({
           <BeatLoader size={10} color="#000" />
         ) : (
           <Box display="flex" alignItems="center" gap={2}>
-            <AiOutlineCloudUpload size={25} /> <Text>Submit</Text>
+            <AiOutlineCloudUpload size={25} />
+            <Text>Submit</Text>
           </Box>
         )}
       </Button>

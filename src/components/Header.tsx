@@ -26,7 +26,13 @@ const Header = () => {
           <polyline points="16 18 22 12 16 6"></polyline>
           <polyline points="8 6 2 12 8 18"></polyline>
         </svg>
-        <Text fontWeight="bold">E6DATA Code Editor</Text>
+        <Text
+          fontWeight="bold"
+          _hover={{ color: 'orange.500' }}
+          cursor="pointer"
+        >
+          E6DATA Code Editor
+        </Text>
       </Box>
       <Box color="#fff">
         <Toggle />
