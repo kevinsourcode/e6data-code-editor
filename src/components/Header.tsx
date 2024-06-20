@@ -7,11 +7,10 @@ const Header = () => {
     <Box
       display="flex"
       justifyContent="space-between"
-      bg="#000"
       p={15}
       alignItems="center"
     >
-      <Box display="flex" color="#fff" gap={2}>
+      <Box display="flex" gap={2}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -34,7 +33,7 @@ const Header = () => {
           E6DATA Code Editor
         </Text>
       </Box>
-      <Box color="#fff">
+      <Box>
         <Toggle />
       </Box>
     </Box>

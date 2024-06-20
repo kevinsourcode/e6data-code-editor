@@ -7,12 +7,13 @@ import * as monaco from 'monaco-editor';
 import LanguageSelector from './LanguageSelector';
 import { CODE_SNIPPETS } from '@/app/constants';
 import { FaCode } from 'react-icons/fa';
+import { useColorMode } from '@chakra-ui/react';
 
 interface EditorProps {
-  theme: string;
+  //
 }
 
-const CodeEditor: React.FC<EditorProps> = ({ theme }) => {
+const CodeEditor: React.FC<EditorProps> = () => {
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
   const [language, setLanguage] = useState('javascript');
   const [value, setValue] = useState('');
@@ -27,11 +28,12 @@ const CodeEditor: React.FC<EditorProps> = ({ theme }) => {
     setValue(CODE_SNIPPETS[language]);
   };
 
+  const { colorMode } = useColorMode();
+
   return (
     <Box>
       <Box
         w="100%"
-        bg="#fff"
         color="#000"
         borderTopRadius={5}
         p={2}
@@ -39,14 +41,15 @@ const CodeEditor: React.FC<EditorProps> = ({ theme }) => {
         display="flex"
         alignItems="center"
         gap={2}
+        bg={colorMode === 'light' ? '#000' : '#fff'}
       >
-        <FaCode />
-        <Text>Code</Text>
+        <FaCode color={colorMode === 'light' ? '#fff' : '#000'} />
+        <Text color={colorMode === 'light' ? '#fff' : '#000'}>Code</Text>
         {/* <LanguageSelector language={language} onSelect={onSelect} /> */}
       </Box>
       <Editor
         height="45vh"
-        theme="vs-dark"
+        theme={colorMode === 'light' ? 'light' : 'vs-dark'}
         language={language}
         defaultValue={CODE_SNIPPETS[language]}
         value={value}

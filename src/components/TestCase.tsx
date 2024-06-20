@@ -1,5 +1,6 @@
-import { Box, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { FaCheckSquare } from 'react-icons/fa';
+import { useColorMode } from '@chakra-ui/react';
 
 interface TestCaseProps {
   runCode: () => void;
@@ -7,25 +8,29 @@ interface TestCaseProps {
 }
 
 const TestCase: React.FC<TestCaseProps> = ({ runCode, program }) => {
-  const bg = useColorModeValue('#Fffffe', '#1e1e1e');
-  const color = useColorModeValue('#000', 'orange.500');
+  const { colorMode } = useColorMode();
 
   return (
     <Box borderRadius={10} h="24vh">
       <Box
         w="100%"
-        bg="#fff"
         color="#000"
         borderTopRadius={5}
         p={2}
         display="flex"
         alignItems="center"
         gap={2}
+        bg={colorMode === 'light' ? '#1e1e1e' : '#fff'}
       >
-        <FaCheckSquare />
-        <Text>Test Cases</Text>
+        <FaCheckSquare color={colorMode === 'light' ? '#fff' : '#000'} />
+        <Text color={colorMode === 'light' ? '#fff' : '#000'}>Test Cases</Text>
       </Box>
-      <Box bg={bg} p={4} h="105%" borderBottomRadius={5}>
+      <Box
+        p={4}
+        h="105%"
+        borderBottomRadius={5}
+        bg={colorMode === 'light' ? '#fff' : '#1e1e1e'}
+      >
         {program ? (
           <Box>
             <Text>Output: </Text>
@@ -35,7 +40,7 @@ const TestCase: React.FC<TestCaseProps> = ({ runCode, program }) => {
             </Text>
           </Box>
         ) : (
-          <Text alignItems="center" color={color}>
+          <Text alignItems="center">
             Run The Program to determine whether it passes the test cases.
           </Text>
         )}

@@ -15,7 +15,6 @@ import { useDisclosure } from '@chakra-ui/react';
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
-  const [theme, setTheme] = useState('light');
   const [program, setProgram] = useState(false);
   const { onOpen, isOpen, onClose } = useDisclosure();
 
@@ -47,20 +46,12 @@ export default function Home() {
         onClose={onClose}
         setIsLoading={setIsLoading}
       />
-      <Flex
-        minH="90vh"
-        bg="#000"
-        color="gray.500"
-        flexDirection={flexDirection}
-        gap={2}
-        px={3}
-        pt={3}
-      >
+      <Flex minH="90vh" flexDirection={flexDirection} gap={2} px={3} pt={3}>
         <Box flex="1">
           <ProblemStatement />
         </Box>
         <Box minW={minW} display="flex" flexDirection="column" gap={2}>
-          <CodeEditor theme={theme} />
+          <CodeEditor />
           <TestCase runCode={runCode} program={program} />
           <Buttons
             submitCode={submitCode}

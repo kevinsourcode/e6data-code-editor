@@ -10,7 +10,7 @@ const Toggle: FC = () => {
       colorScheme="black"
       size="md"
       icon={useColorModeValue(
-        <BsMoon color="#fff" size={25} />,
+        <BsMoon color="#000" size={25} />,
         <BsSun color="#fff" size={25} />,
       )}
       onClick={toggleColorMode}

@@ -40,7 +40,7 @@ const Buttons: React.FC<ButtonsProps> = ({
         mt={4}
         mr={2}
         bg="orange.500"
-        _hover={{ bg: '#fff', color: '#fff' }}
+        _hover={{ bg: '#fff' }}
         onClick={runCode}
         w={20}
       >
