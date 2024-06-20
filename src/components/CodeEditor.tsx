@@ -42,7 +42,9 @@ const CodeEditor = () => {
         <Box display="flex" justifyContent="space-between" w="100%">
           <Box display="flex" alignItems="center" gap={2}>
             <FaCode color={colorMode === 'light' ? '#fff' : '#000'} />
-            <Text color={colorMode === 'light' ? '#fff' : '#000'}>Code</Text>
+            <Text fontSize={16} color={colorMode === 'light' ? '#fff' : '#000'}>
+              Code
+            </Text>
           </Box>
           <LanguageSelector language={language} onSelect={onSelect} />
         </Box>

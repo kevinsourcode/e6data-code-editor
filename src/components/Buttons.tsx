@@ -9,6 +9,7 @@ import React from 'react';
 import { BeatLoader, MoonLoader } from 'react-spinners';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { FaPlay } from 'react-icons/fa';
+import { useColorMode } from '@chakra-ui/react';
 
 interface ButtonsProps {
   submitCode: () => void;
@@ -23,6 +24,7 @@ const Buttons: React.FC<ButtonsProps> = ({
   isLoading,
   isRunning,
 }) => {
+  const { colorMode } = useColorMode();
   const justifyContent = useBreakpointValue<'center' | 'end'>({
     base: 'center',
     md: 'end',
@@ -40,7 +42,9 @@ const Buttons: React.FC<ButtonsProps> = ({
         mt={4}
         mr={2}
         bg="orange.500"
-        _hover={{ bg: '#fff' }}
+        _hover={{
+          bg: colorMode === 'light' ? '#fff' : '#000',
+        }}
         onClick={runCode}
         w={20}
       >
@@ -48,17 +52,29 @@ const Buttons: React.FC<ButtonsProps> = ({
           <MoonLoader size={15} color="#000" />
         ) : (
           <Box display="flex" alignItems="center" gap={2}>
-            <FaPlay size={18} /> <Text>Run</Text>
+            <FaPlay size={18} color={colorMode === 'light' ? '#000' : '#fff'} />
+            <Text color={colorMode === 'light' ? '#000' : '#fff'}>Run</Text>
           </Box>
         )}
       </Button>
-      <Button mt={4} w={40} bg="green.400" onClick={submitCode}>
+      <Button
+        mt={4}
+        w={40}
+        bg="green.400"
+        _hover={{
+          bg: colorMode === 'light' ? '#fff' : '#000',
+        }}
+        onClick={submitCode}
+      >
         {isLoading ? (
           <BeatLoader size={10} color="#000" />
         ) : (
           <Box display="flex" alignItems="center" gap={2}>
-            <AiOutlineCloudUpload size={25} />
-            <Text>Submit</Text>
+            <AiOutlineCloudUpload
+              size={25}
+              color={colorMode === 'light' ? '#000' : '#fff'}
+            />
+            <Text color={colorMode === 'light' ? '#000' : '#fff'}>Submit</Text>
           </Box>
         )}
       </Button>

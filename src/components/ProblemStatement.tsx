@@ -21,7 +21,7 @@ const ProblemStatement = () => {
       flexDirection="column"
       gap={8}
       borderRadius={5}
-      h="80vh"
+      h="86vh"
       boxShadow="20px"
     >
       <Box

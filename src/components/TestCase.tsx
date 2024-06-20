@@ -34,7 +34,9 @@ const TestCase: React.FC<TestCaseProps> = ({ runCode, program }) => {
         {program ? (
           <Box>
             <Text>Output: </Text>
-            <Text color="#fff">Hello, Alex! </Text>
+            <Text color={colorMode === 'light' ? '#000' : '#d4d4d4'}>
+              Hello, Alex!{' '}
+            </Text>
             <Text color="green.500" fontWeight="bold" mt={8}>
               Test case passed succesfully!
             </Text>
