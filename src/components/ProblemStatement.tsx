@@ -12,8 +12,6 @@ import { MdOutlineDescription } from 'react-icons/md';
 
 const ProblemStatement = () => {
   const { colorMode } = useColorMode();
-  const bg = useColorModeValue('#Fffffe', '#1e1e1e');
-  const color = useColorModeValue('#000', 'orange.500');
 
   return (
     <Box
@@ -21,7 +19,7 @@ const ProblemStatement = () => {
       display="flex"
       flexDirection="column"
       gap={8}
-      bg={bg}
+      bg="#1e1e1e"
       borderRadius={5}
       h="80vh"
     >
@@ -46,7 +44,7 @@ const ProblemStatement = () => {
         p={5}
         overflow="scroll"
       >
-        <Text fontSize={32} fontWeight="bold" color={color}>
+        <Text fontSize={32} fontWeight="bold" color="orange.500">
           Two Sum
         </Text>
         <Text w="80%">
@@ -58,26 +56,20 @@ const ProblemStatement = () => {
           you may not use the same element twice. You can return the answer in
           any order.
         </Text>
-        <Text color={color} fontWeight="bold">
-          Example 1:
-        </Text>
+        <Text fontWeight="bold">Example 1:</Text>
         <Code w="60%" rounded={'true'}>
           Input: nums = [2,7,11,15], target = 9 Output: [0,1]
         </Code>
-        <Text color={color} fontWeight="bold">
-          Example 2:{' '}
-        </Text>
+        <Text fontWeight="bold">Example 2: </Text>
         <Code w="60%" rounded={'true'}>
           Input: nums = [3,2,4], target = 6 Output: [1,2]
         </Code>
-        <Text color={color} fontWeight="bold">
-          Example 3:{' '}
-        </Text>
+        <Text fontWeight="bold">Example 3: </Text>
         <Code w="60%" rounded={'true'}>
           Input: nums = [3,3], target = 6 Output: [0,1]
         </Code>
 
-        <Text color={color} fontWeight="bold" mt={5}>
+        <Text fontWeight="bold" mt={5}>
           Constraints:
         </Text>
         <UnorderedList spacing={3}>

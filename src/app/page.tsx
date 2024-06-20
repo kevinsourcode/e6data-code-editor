@@ -7,25 +7,20 @@ import ProblemStatement from '@/components/ProblemStatement';
 import { Box, Flex, useBreakpointValue } from '@chakra-ui/react';
 import Buttons from '@/components/Buttons';
 import { Toaster, toast } from 'sonner';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import TestCase from '@/components/TestCase';
+import Confirmation from '@/components/Confirmation';
+import { useDisclosure } from '@chakra-ui/react';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
   const [theme, setTheme] = useState('light');
   const [program, setProgram] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {}, 2000);
-  }, []);
+  const { onOpen, isOpen, onClose } = useDisclosure();
 
   const submitCode = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      toast.success('Program submitted successfully!');
-      setIsLoading(false);
-    }, 2000);
+    onOpen();
   };
 
   const runCode = () => {
@@ -47,6 +42,11 @@ export default function Home() {
     <main>
       <Header />
       <Toaster position="top-right" richColors closeButton />
+      <Confirmation
+        isOpen={isOpen}
+        onClose={onClose}
+        setIsLoading={setIsLoading}
+      />
       <Flex
         minH="90vh"
         bg="#000"

@@ -1,4 +1,10 @@
-import { Box, Button, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Text,
+  useBreakpointValue,
+  useDisclosure,
+} from '@chakra-ui/react';
 import React from 'react';
 import { BeatLoader, MoonLoader } from 'react-spinners';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
@@ -17,8 +23,19 @@ const Buttons: React.FC<ButtonsProps> = ({
   isLoading,
   isRunning,
 }) => {
+  const justifyContent = useBreakpointValue<'center' | 'end'>({
+    base: 'center',
+    md: 'end',
+  });
+
   return (
-    <Box display="flex" justifyContent="end" alignItems="center" mt={9} pr={3}>
+    <Box
+      display="flex"
+      justifyContent={justifyContent}
+      alignItems="center"
+      mt={9}
+      pr={3}
+    >
       <Button
         mt={4}
         mr={2}
