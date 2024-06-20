@@ -40,7 +40,7 @@ const TestCase: React.FC<TestCaseProps> = ({ runCode, program }) => {
             </Text>
           </Box>
         ) : (
-          <Text alignItems="center">
+          <Text alignItems="center" color="orange.500" fontWeight="bold">
             Run The Program to determine whether it passes the test cases.
           </Text>
         )}

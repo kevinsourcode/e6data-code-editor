@@ -43,9 +43,13 @@ const CodeEditor: React.FC<EditorProps> = () => {
         gap={2}
         bg={colorMode === 'light' ? '#000' : '#fff'}
       >
-        <FaCode color={colorMode === 'light' ? '#fff' : '#000'} />
-        <Text color={colorMode === 'light' ? '#fff' : '#000'}>Code</Text>
-        {/* <LanguageSelector language={language} onSelect={onSelect} /> */}
+        <Box display="flex" justifyContent="space-between" w="100%">
+          <Box display="flex" alignItems="center" gap={2}>
+            <FaCode color={colorMode === 'light' ? '#fff' : '#000'} />
+            <Text color={colorMode === 'light' ? '#fff' : '#000'}>Code</Text>
+          </Box>
+          <LanguageSelector language={language} onSelect={onSelect} />
+        </Box>
       </Box>
       <Editor
         height="45vh"
