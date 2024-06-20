@@ -48,7 +48,7 @@ const Confirmation: React.FC<ConfirmationProps> = ({
 
         <ModalFooter>
           <Button colorScheme="blue" mr={3} onClick={handleSuccess}>
-            <Text>Yes, I'm ready!</Text>
+            <Text>Yes, Ready!</Text>
           </Button>
           <Button variant="ghost" onClick={onClose}>
             <Text>No, go back.</Text>
