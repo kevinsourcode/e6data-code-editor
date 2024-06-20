@@ -9,11 +9,7 @@ import { CODE_SNIPPETS } from '@/app/constants';
 import { FaCode } from 'react-icons/fa';
 import { useColorMode } from '@chakra-ui/react';
 
-interface EditorProps {
-  //
-}
-
-const CodeEditor: React.FC<EditorProps> = () => {
+const CodeEditor = () => {
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
   const [language, setLanguage] = useState('javascript');
   const [value, setValue] = useState('');
